@@ -1,32 +1,21 @@
 import React, { Component } from 'react'
 import LoginForm from "./components/LoginForm";
-import TwitterMessage from "./components/TwitterMessage";
+// import TwitterMessage from "./components/TwitterMessage";
 
-class App extends Component {
+function App(){
 
-  login = ({ username, password }) => {
-    console.log(`Logging in ${username} with password ${password}`);
-  };
-
-  render() {
-    return (
-      <div>
-
-        <h1>
-          <pre>LoginForm</pre>
-        </h1>
-        <LoginForm handleLogin={this.login} />
-
-        <h1>
-          <pre>TwitterMessage</pre>
-        </h1>
-        <TwitterMessage maxChars={280} />
-
-
-
-      </div>
-    )
+  const handleSubmit = ({firstName, lastName, dob}) => {
+    console.log("Submitted on Parent Component")
+    console.log(firstName);
+    console.log(lastName);
+    console.log(dob);
   }
+
+  return (
+    <div className="App">
+      <LoginForm handleSubmit={handleSubmit}></LoginForm>
+    </div>
+  );
 }
 
-export default App
+export default App;
